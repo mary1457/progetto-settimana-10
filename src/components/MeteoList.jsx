@@ -89,7 +89,7 @@ const MeteoList = () => {
           placeholder="Cerca una città"
           className="me-2" 
         />
-        <Button variant="primary" type="submit">
+        <Button  type="submit" className='btnblu'>
           Cerca
         </Button>
       </Form.Group>

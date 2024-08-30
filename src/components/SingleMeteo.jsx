@@ -6,9 +6,9 @@ const SingleMeteo = ({meteo}) => {
     const navigate = useNavigate()
   return (
    
-<Card >
+<Card className='cdblu' >
 
-<Card.Body>
+<Card.Body className='text-white'>
   <Card.Title>{meteo.name}</Card.Title>
   <Card.Img
         variant="top"
@@ -22,7 +22,7 @@ const SingleMeteo = ({meteo}) => {
   {meteo.main.temp}&#176;
   </Card.Text>
   
-  <Button variant="primary"
+  <Button className='btnblu'
    onClick={() => {
     navigate('/city-details/'+meteo.name) 
   }}

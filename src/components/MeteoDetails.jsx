@@ -61,12 +61,12 @@ const MeteoDetails = () => {
         };
     };
 
-    // Funzione per raggruppare i dati per fasce orarie con un solo dato per fascia
+    
     const groupByTimeOfDay = (list) => {
         return list.reduce((acc, current) => {
-            const date = current.dt_txt.split(' ')[0]; // Ottiene solo la data
-            const time = current.dt_txt.split(' ')[1]; // Ottiene solo l'ora
-            const hour = parseInt(time.split(':')[0], 10); // Ottiene l'ora in formato numerico
+            const date = current.dt_txt.split(' ')[0]; 
+            const time = current.dt_txt.split(' ')[1]; 
+            const hour = parseInt(time.split(':')[0], 10); 
 
             let period = '';
             if (hour >= 6 && hour < 12) {
@@ -85,7 +85,7 @@ const MeteoDetails = () => {
                 };
             }
 
-            // Salva solo il primo dato trovato per ciascun periodo
+           
             if (!acc[date][period]) {
                 acc[date][period] = current;
             }
@@ -93,6 +93,27 @@ const MeteoDetails = () => {
             return acc;
         }, {});
     };
+
+
+    const formatDateItalian=(dateStr)=> {
+      
+        const date = new Date(dateStr);
+    
+       
+        const giorniSettimana = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+    
+      
+        const giornoSettimana = giorniSettimana[date.getDay()];
+    
+      
+        const giorno = date.getDate().toString().padStart(2, '0');
+        const mese = (date.getMonth() + 1).toString().padStart(2, '0'); 
+        const anno = date.getFullYear();
+    
+      
+        return `${giornoSettimana} ${giorno}/${mese}/${anno}`;
+    }
+    
 
     return (
         <Container className="h-100">
@@ -103,8 +124,8 @@ const MeteoDetails = () => {
                     ) : isError ? (
                         <p>Errore nel caricamento dei dati meteo</p>
                     ) : city ? (
-                        <Card>
-                            <Card.Body>
+                        <Card className='cdblu'>
+                            <Card.Body className='text-white'>
                                 <Card.Title>{city.name}</Card.Title>
                                 <Card.Img
                                     variant="top"
@@ -135,14 +156,14 @@ const MeteoDetails = () => {
                 <Row className="justify-content-center m-3 g-2">
                     {Object.keys(cityFour).map((date) => (
                         <Col key={date} xs={12} >
-                            <Card>
-                                <Card.Body>
-                                    <Card.Title>{date}</Card.Title>
-                                    <Row className='d-flex'>
+                            <Card className='cdblu'>
+                                <Card.Body className='text-white'>
+                                    <Card.Title>{formatDateItalian(date)}</Card.Title>
+                                    <Row className='d-flex  '>
                                         
                                         {['Mattina', 'Pomeriggio', 'Notte'].map((period) => (
-                                        <Col key={period} className='text-center'>
-                                            <Card.Subtitle className="mb-2 text-muted">
+                                        <Col key={period} className='text-center p-3'>
+                                            <Card.Subtitle className="mb-2 ">
                                                 {period}
                                             </Card.Subtitle>
                                             {cityFour[date][period] ? (
