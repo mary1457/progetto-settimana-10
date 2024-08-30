@@ -6,8 +6,8 @@ const NotFound = () => {
 
   return (
     <Container> 
-      <Row className="justify-content-center">
-        <Col xs={12} md={8} className='text-white'>
+      <Row className="justify-content-center m-3">
+        <Col xs={12} md={8} >
           <h2>404 - Not found</h2>
           <p>
             Ci dispiace, ma la pagina che stavi cercando non può essere trovata.

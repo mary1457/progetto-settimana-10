@@ -41,9 +41,9 @@ const MeteoDetails = () => {
     <Row className="justify-content-center  h-100 m-3">
       <Col xs={12} sm={12} md={12}   lg={6}  className="text-center">
         {isLoading ? (
-          <Spinner animation="border" />
+            <p>Loading...</p>
         ) : isError ? (
-          <Alert variant="danger">Errore nel caricamento dei dati meteo</Alert>
+            <p>Errore nel caricamento dei dati meteo</p>
         ) : city ? (
           <Card>
             <Card.Body>
@@ -64,7 +64,7 @@ const MeteoDetails = () => {
             </Card.Body>
           </Card>
         ) : (
-          <Alert variant="warning">Nessun dato meteo disponibile</Alert>
+          <p>Nessun dato meteo disponibile</p>
         )}
       </Col>
     </Row>
