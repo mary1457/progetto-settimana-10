@@ -162,7 +162,7 @@ const MeteoDetails = () => {
                                     <Row className='d-flex  '>
                                         
                                         {['Mattina', 'Pomeriggio', 'Notte'].map((period) => (
-                                        <Col key={period} className='text-center p-3'>
+                                        <Col key={period} className='text-center p-3'xs={4}>
                                             <Card.Subtitle className="mb-2 ">
                                                 {period}
                                             </Card.Subtitle>
