@@ -10,6 +10,11 @@ const SingleMeteo = ({meteo}) => {
 
 <Card.Body>
   <Card.Title>{meteo.name}</Card.Title>
+  <Card.Img
+        variant="top"
+        src={`https://openweathermap.org/img/wn/${meteo.weather[0].icon}@2x.png`}
+      className='w-25'
+      />
   <Card.Text>
   {meteo.weather[0].description}
   </Card.Text>

@@ -16,7 +16,7 @@ const MeteoList = () => {
   }, []); 
 
   const fetchAllMeteo = async (cities) => {
-    const API_KEY = '69ca7ca347f4f6d5442d175465b92a61';
+    const API_KEY = '4581ed4a75ffef0475104ebe50dad4bb';
     try {
       const responses = await Promise.all(cities.map(citta =>
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citta},IT&appid=${API_KEY}&units=metric&lang=it`)
@@ -48,7 +48,7 @@ const MeteoList = () => {
    
     
     
-      const API_KEY = '69ca7ca347f4f6d5442d175465b92a61';
+      const API_KEY = '4581ed4a75ffef0475104ebe50dad4bb';
       const URL = `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery},IT&appid=${API_KEY}&units=metric&lang=it`;
       
       fetch(URL)
